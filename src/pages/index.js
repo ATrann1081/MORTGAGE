@@ -9,23 +9,9 @@ export default function Mortgage() {
     formState: { errors },
   } = useForm();
 
-  // câu hỏi: tại sao lại cần setMonthlyPayment
-  // Trong React, monthlyPayment là một state, và setMonthlyPayment(...) chính là hàm duy nhất để thay đổi giá trị của state đó.
-  // Nếu bạn chỉ "in trực tiếp" giá trị kết quả ra ngoài mà không dùng setMonthlyPayment, thì giao diện (UI) sẽ không tự động render lại.
-  // Lý do: React quản lý vòng đời component dựa trên state và props.
-  // Khi state thay đổi thông qua hàm setter (setMonthlyPayment), React sẽ biết rằng component cần render lại và cập nhật UI
-
   const [monthlyPayment, setMonthlyPayment] = useState("");
 
-  // cú pháp const [giáTrịHiệnTại, hàmCậpNhật] = useState(giáTrịBanĐầu);
-  //monthlyPayment	Biến chứa giá trị kết quả hiện tại
-  //setMonthlyPayment(...)	Cập nhật lại kết quả và render lại giao diện
-  //useState("")	Tạo state, với giá trị khởi đầu là rỗng
-
   const onSubmit = (data) => {
-    // data là object chứa dữ liệu từ form
-    // do react-hook-form thu thập được sau khi người dùg nhấn submit.
-
     const personalLoan = parseFloat(data.PersonalLoan); // số tiền vay
     const interestRate = parseFloat(data.InterestRate) / 100; // lãi suất user nhập vào
     const years = parseFloat(data.Years) * 12;
@@ -37,11 +23,6 @@ export default function Mortgage() {
     const numerator = personalLoan * r * Math.pow(1 + r, n); // tử số
     const denominator = Math.pow(1 + r, n) - 1; // mẫu số
     const m = numerator / denominator;
-
-    // setMonthlyPayment(formatter.format(result));
-    // result được tính xong thì truyền vào setMonthlyPayment(...).
-    // setMonthlyPayment sẽ cập nhật state monthlyPayment.
-    // Khi state monthlyPayment thay đổi, React sẽ render lại component, lúc này giá trị mới sẽ được hiển thị
 
     const result = Math.round(m); //Math.round(m): Làm tròn số
     setMonthlyPayment(result.toLocaleString("en-US"));
@@ -96,17 +77,10 @@ export default function Mortgage() {
                 />
                 <span
                   className={`${styles.error} ${
-                    // `${...}` cho phép chèn giá trị JS vào trong chuỗi.
                     errors.InterestRate ? styles.show : ""
                   }`}
                 >
                   {errors.InterestRate?.message || ""}
-
-                  {/* Đây là biểu thức JSX (chèn JavaScript vào trong HTML-like JSX).
-                  errors.InterestRate?.message dùng optional chaining (?.):
-                        Nếu errors.InterestRate tồn tại → lấy thuộc tính message.
-                        Nếu không tồn tại (undefined/null) → không báo lỗi, trả về undefined.
-                  || "": nếu kết quả là undefined hoặc rỗng → hiển thị "" (chuỗi rỗng). */}
                 </span>
               </label>
             </div>
@@ -140,12 +114,6 @@ export default function Mortgage() {
           </button>
         </form>
 
-        {/* <div className={styles.resultCard}>
-          <p className={styles.card2}>SỐ TIỀN PHẢI TRẢ HÀNG THÁNG</p>
-          <p className={styles.card3}>
-            <strong> {monthlyPayment} $</strong>
-          </p>
-        </div> */}
         <div className={styles.resultCard}>
           <p className={styles.card2}>SỐ TIỀN PHẢI TRẢ HÀNG THÁNG</p>
 
