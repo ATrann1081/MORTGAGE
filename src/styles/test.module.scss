@@ -1,0 +1,175 @@
+@import url("https://fonts.googleapis.com/css2?family=Genos&display=swap");
+
+.container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 40px 20px;
+  background: #fafafa;
+  font-family: "Genos", sans-serif;
+}
+
+.title {
+  color: #093102;
+  font-family: "Playfair Display", serif;
+  font-size: 48px;
+  font-weight: 700;
+  letter-spacing: 0;
+  line-height: normal;
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.wrapper {
+  display: flex;
+  gap: 40px;
+  max-width: 1200px;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.form {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+
+  min-width: 360px;
+  align-items: center;
+}
+
+.label {
+  display: flex;
+  flex-direction: column;
+  font-size: 20px;
+  color: #23330e;
+  margin-bottom: 20px;
+  font-family: "Genos", sans-serif;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 5px;
+}
+
+.input {
+  width: 100%;
+  max-width: 600px;
+  border-radius: 14px;
+  font-size: 20px;
+  text-align: left;
+  transition: border-color 0.2s;
+  padding: 10px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  font-family: "Genos", sans-serif;
+  outline: none;
+  background-color: #f7fde8;
+  height: 20px;
+  margin: 0 auto;
+  font-weight: bold;
+
+  &:focus {
+    border-color: #415e16;
+  }
+}
+
+.button {
+  width: 100%;
+  max-width: 500px;
+  border-radius: 14px;
+  font-size: 24px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  text-align: center;
+  align-self: center;
+  display: block;
+  background-color: #3c5718;
+  border: none;
+  padding: 15px;
+  font-weight: bold;
+  color: #c7dfa7;
+  margin-top: 80px;
+  font-family: "Genos", sans-serif;
+
+  &:hover {
+    background-color: #c7dfa7;
+    color: #3c5718;
+  }
+}
+
+:global(input[type="number"]::-webkit-inner-spin-button),
+:global(input[type="number"]::-webkit-outer-spin-button) {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+// .resultCard {
+//   flex: 1;
+//   min-width: 360px;
+//   padding: 40px; /* thoáng hơn */
+//   background: #f7fde8;
+//   border-radius: 16px;
+//   box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+//   font-size: 40px;
+//   color: #333;
+//   justify-content: center;
+//   text-align: center;
+// }
+
+.resultCard {
+  flex: 1;
+  min-width: 360px;
+  padding: 40px;
+  background: #f7fde8;
+  border-radius: 16px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+  color: #333;
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.card2 {
+  font-size: 30px;
+  margin-bottom: 90px; /* cách chữ và số */
+  margin-top: 0px;
+  color: #555;
+  justify-content: center;
+}
+
+.card3 {
+  font-size: 50px;
+  font-weight: bold;
+  color: #093102;
+  display: none;
+}
+
+.card3.show {
+  display: block;
+}
+
+.error {
+  margin-top: 6px;
+  color: #ff0000;
+  font-style: italic;
+  font-size: 14px;
+  min-height: 20px;
+  visibility: hidden;
+}
+
+.error.show {
+  visibility: visible;
+}
