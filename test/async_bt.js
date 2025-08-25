@@ -14,9 +14,9 @@ async function getData() {
     const response3 = await fakeAPI();
     const sum = response3 + response2 + response1;
 
-    console.log("API 1 là: ", response1);
-    console.log("API 2 là: ", response2);
-    console.log("API 3 là: ", response3);
+    console.log("fakeAPI 1 là: ", response1);
+    console.log("fakeAPI 2 là: ", response2);
+    console.log("fakeAPI 3 là: ", response3);
 
     console.log("Kết quả là: ", sum);
   } catch (error) {
